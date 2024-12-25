@@ -1,22 +1,65 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>詢問表單</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .search-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .search-container label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .search-container input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .search-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
     <script>
         function Search() {
             var query = document.getElementById('queryTextbox').value;
-            var url = 'https://felo.ai/search?q=encodeURIComponent(query)+site%3Awww.etatung.com/';
+            var url = 'https://felo.ai/search?q=' + encodeURIComponent(query) + ' site:www.etatung.com/';
             window.open(url, '_blank');
         }
     </script>
 </head>
 <body>
-    <form>
+    <div class="search-container">
         <label for="queryTextbox">詢問:</label>
         <input type="text" id="queryTextbox" name="queryTextbox" size="100">
         <button type="button" onclick="Search()">搜尋</button>
-    </form>
+    </div>
 </body>
 </html>
