@@ -54,6 +54,15 @@
             border: 1px solid #ddd;
             border-radius: 10px;
         }
+        .full-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            border-radius: 0;
+        }
     </style>
     <script>
         function Search() {
@@ -68,6 +77,15 @@
                 Search();
             }
         }
+
+        function toggleFullScreen() {
+            var iframe = document.getElementById('resultFrame');
+            if (iframe.classList.contains('full-screen')) {
+                iframe.classList.remove('full-screen');
+            } else {
+                iframe.classList.add('full-screen');
+            }
+        }
     </script>
 </head>
 <body>
@@ -75,6 +93,7 @@
         <label for="queryTextbox">tsti 官網搜尋</label>
         <input type="text" id="queryTextbox" name="queryTextbox" size="100" onkeypress="handleKeyPress(event)">
         <button type="button" onclick="Search()">搜尋</button>
+        <button type="button" onclick="toggleFullScreen()">全畫面/縮回</button>
     </div>
     <iframe id="resultFrame" name="resultFrame"></iframe>
 </body>
