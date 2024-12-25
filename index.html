@@ -13,6 +13,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
+            flex-direction: column;
         }
         .search-container {
             text-align: center;
@@ -20,6 +21,7 @@
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
         .search-container label {
             font-size: 18px;
@@ -46,20 +48,34 @@
         .search-container button:hover {
             background-color: #0056b3;
         }
+        iframe {
+            width: 80%;
+            height: 60vh;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
     </style>
     <script>
         function Search() {
             var query = document.getElementById('queryTextbox').value;
             var url = 'https://felo.ai/search?q=' + encodeURIComponent(query) + ' site:www.etatung.com/';
-            window.open(url, '_blank');
+            document.getElementById('resultFrame').src = url;
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                Search();
+            }
         }
     </script>
 </head>
 <body>
     <div class="search-container">
-        <label for="queryTextbox">詢問:</label>
-        <input type="text" id="queryTextbox" name="queryTextbox" size="100">
+        <label for="queryTextbox">tsti 官網搜尋</label>
+        <input type="text" id="queryTextbox" name="queryTextbox" size="100" onkeypress="handleKeyPress(event)">
         <button type="button" onclick="Search()">搜尋</button>
     </div>
+    <iframe id="resultFrame" name="resultFrame"></iframe>
 </body>
 </html>
