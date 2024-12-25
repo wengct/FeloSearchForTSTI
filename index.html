@@ -58,7 +58,7 @@
     <script>
         function Search() {
             var query = document.getElementById('queryTextbox').value;
-            var url = 'https://felo.ai/search?q=' + encodeURIComponent(query) + ' site:www.etatung.com/';
+            var url = 'https://felo.ai/search?q=' + encodeURIComponent(query) + '+site:www.etatung.com&mode=verbose';
             document.getElementById('resultFrame').src = url;
         }
 
