@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>詢問表單</title>
+    <script>
+        function Search() {
+            var query = document.getElementById('queryTextbox').value;
+            var url = 'https://example.com/search?q=' + encodeURIComponent(query);
+            window.open(url, '_blank');
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <label for="queryTextbox">詢問:</label>
+        <input type="text" id="queryTextbox" name="queryTextbox" size="100">
+        <button type="button" onclick="Search()">搜尋</button>
+    </form>
+</body>
+</html>
