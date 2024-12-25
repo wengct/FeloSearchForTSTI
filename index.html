@@ -48,6 +48,23 @@
         .search-container button:hover {
             background-color: #0056b3;
         }
+        .float-button {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #dc3545;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 10000;
+        }
+        .float-button:hover {
+            background-color: #c82333;
+        }
         iframe {
             width: 80%;
             height: 60vh;
@@ -80,10 +97,13 @@
 
         function toggleFullScreen() {
             var iframe = document.getElementById('resultFrame');
+            var floatButton = document.getElementById('floatButton');
             if (iframe.classList.contains('full-screen')) {
                 iframe.classList.remove('full-screen');
+                floatButton.style.display = 'none';
             } else {
                 iframe.classList.add('full-screen');
+                floatButton.style.display = 'block';
             }
         }
     </script>
@@ -96,5 +116,6 @@
         <button type="button" onclick="toggleFullScreen()">全畫面/縮回</button>
     </div>
     <iframe id="resultFrame" name="resultFrame"></iframe>
+    <button id="floatButton" class="float-button" onclick="toggleFullScreen()">縮回</button>
 </body>
 </html>
